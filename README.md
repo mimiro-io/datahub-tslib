@@ -3,6 +3,10 @@ A typescript module for writing datahub transform scripts with strict typing.
 
 ## Usage
 
+### Prerequisites
+
+the `tt` transpiler that comes with this package requires node version 17 or higher.
+
 ### Installation
 
 If you don't have an existing npm project yet, create one:
