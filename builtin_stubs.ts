@@ -2,6 +2,9 @@ import { Entity, PropertyValue, ReferenceValue, Transaction, QueryResult } from 
 
 export function Log(t: any, level?: string):void{console.log(t,level)}
 export function NewEntity():Entity { return NewEntity() }
+export function NewEntityFrom(entity: Entity, addType: boolean, copyProps: boolean, copyRefs: boolean): Entity {
+    console.log(entity, addType, copyProps, copyRefs);  return NewEntity()
+}
 export function AsEntity(obj:any):Entity|null { console.log(obj);return null }
 export function GetId(entity: Entity):string|null { console.log(entity); return ""; }
 export function SetId(entity: Entity, id: string):void{console.log(entity, id); }
