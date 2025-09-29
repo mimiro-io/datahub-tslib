@@ -54,6 +54,27 @@ export function transform_entities(entities: dh.Entity[]): dh.Entity[] {
 }
 ```
 
+To define dependency tracking in the transform, the following can be placed before the transform_entities function
+
+```typescript
+export function track_queries(start: dh.DependencyRoot) {
+    start.hop("my.Dataset", "http://data.mimiro.io/foo/bar/fooBarId");
+}
+```
+
+The hops can also be nested:
+
+```typescript
+export function track_queries(start: dh.DependencyRoot) {
+    start.hop("my.Dataset", "http://data.mimiro.io/foo/bar/fooBarId")
+        .iHop("another.Dataset", "http://data.mimiro.io/another/dataset/field");
+}
+```
+
+`hop` = regular hop
+`iHop` = inverse hop
+
+
 
 
 To transpile the typescript transform to javascript, run: 
