@@ -58,3 +58,21 @@ export class PagedQueryQuery {
 }
 export type PagedQueryContinuation = string[];
 export type PagedQueryCallbackFn = (page: QueryResult[]) => boolean;
+
+export class DependencyRoot {
+    private steps: Array<{type: string, nextDataset: string, predicate: string}> = [];
+
+    hop(nextDataset: string, predicate: string): this {
+        this.steps.push({ type: "hop", nextDataset, predicate });
+        return this;
+    }
+
+    iHop(nextDataset: string, predicate: string): this {
+        this.steps.push({ type: "iHop", nextDataset, predicate });
+        return this;
+    }
+
+    getSteps() {
+        return this.steps;
+    }
+}
